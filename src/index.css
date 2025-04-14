@@ -1,13 +1,38 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body, html{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background-color: #F8F8F8;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  box-sizing: border-box;
 }
+
+h1{
+  font-size: 40px;
+  line-height: 40px;
+}
+
+p{
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.bg-image{
+  background-image: url('../public/assets/pexels-alexandr-podvalny-1227513.jpeg')
+}
+
+.test{
+  background-color: rgb(179, 179, 179);
+}
+
