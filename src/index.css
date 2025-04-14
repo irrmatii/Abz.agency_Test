@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 
-
 body, html{
   margin: 0;
   padding: 0;
@@ -28,11 +27,4 @@ p{
   line-height: 26px;
 }
 
-.bg-image{
-  background-image: url('../public/assets/pexels-alexandr-podvalny-1227513.webp')
-}
-
-.test{
-  background-color: rgb(179, 179, 179);
-}
 
