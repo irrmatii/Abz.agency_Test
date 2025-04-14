@@ -12,7 +12,7 @@ const Hero = () => {
                 fetchpriority="high"
             />
             <div className="w-full h-full bg-[rgba(0,0,0,0.5)] flex items-center justify-center z-10">
-                <div className="max-w-[380px] w-full min-h-[323px] h-auto flex flex-col gap-[21px]">
+                <div className="max-w-[380px] w-full min-h-[323px] h-auto flex flex-col gap-[21px] px-4">
                     <h1 className="text-center text-white">Test-assignment for front-end developer</h1>
                     <p className='text-center text-white'>What defines a good front-end developer is one that
                         has
