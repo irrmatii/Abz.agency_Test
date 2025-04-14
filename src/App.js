@@ -4,7 +4,6 @@ import Hero from "./sections/Hero";
 import UsersSection from "./sections/UsersSection";
 import FormSection from "./sections/FormSection";
 import SuccessRegSection from "./sections/SuccessRegSection";
-import {useState} from "react";
 
 function App() {
 

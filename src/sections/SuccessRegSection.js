@@ -12,7 +12,7 @@ const SuccessRegSection = () => {
                 <h1>User successfully registered</h1>
             </div>
             <div className="w-full h-full flex items-center justify-center">
-                <img src="/assets/success-image.svg" alt="success registration image"/>
+                <img src="/assets/success-image.svg" alt="success registration"/>
             </div>
         </div>
     );
