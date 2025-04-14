@@ -4,7 +4,6 @@ import Hero from "./sections/Hero";
 import UsersSection from "./sections/UsersSection";
 import FormSection from "./sections/FormSection";
 import SuccessRegSection from "./sections/SuccessRegSection";
-import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 
@@ -15,8 +14,6 @@ function App() {
         <UsersSection/>
         <FormSection/>
         <SuccessRegSection/>
-
-        <SpeedInsights />
     </div>
   );
 }
