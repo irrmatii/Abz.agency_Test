@@ -1,19 +1,18 @@
 import { create } from 'zustand';
 
-
 const useStore = create((set) => ({
 
-    currentUserNr: 6,
     formSuccess: false,
-
-    setCurrentUserNr: () =>
-        set((state) => ({
-            currentUserNr: state.currentUserNr + 6
-        })),
-
-    resetCurrentUserNr: () => set({currentUserNr: 6}),
+    currentPage: 1,
 
     setFormSuccess: (value) => set({formSuccess: value}),
+
+    setCurrentPage: () =>
+        set((state) => ({
+            currentPage: state.currentPage + 1
+        })),
+
+    resetCurrentPage: () => set({currentPage: 1}),
 
 }));
 

@@ -5,7 +5,7 @@ import useStore from "../store/main";
 
 const FormSection = () => {
 
-    const {resetCurrentUserNr, setFormSuccess, formSuccess} = useStore(state => state);
+    const {setFormSuccess, formSuccess, resetCurrentPage} = useStore(state => state);
 
 
     const [positions, setPositions] = useState([]);
@@ -29,7 +29,6 @@ const FormSection = () => {
 
         http.get(`https://frontend-test-assignment-api.abz.agency/api/v1/token`)
             .then(data => {
-                console.log('token', data.token);
                 setToken(data.token);
             })
     }, []);
@@ -41,7 +40,6 @@ const FormSection = () => {
 
     function ImageFileName(e) {
         const file = e.target.files[0];
-        console.log(file);
         if (file) {
             setFileName(file.name);
         }
@@ -67,11 +65,8 @@ const FormSection = () => {
             photo: imageRef.current.files[0]
         }
 
-        console.log(emailRef.current.value)
-
         http.postToken(`https://frontend-test-assignment-api.abz.agency/api/v1/users`, userInfo, token)
             .then(data => {
-                console.log(data)
 
                 if (!data.success){
                     if (data.fails){
@@ -85,10 +80,8 @@ const FormSection = () => {
                     }
                     return
                 }
-
-                setPositions(data.positions);
-                resetCurrentUserNr()
                 setFormSuccess(true)
+                resetCurrentPage()
             })
     }
 

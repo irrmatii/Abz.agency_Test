@@ -6,32 +6,30 @@ import useStore from "../store/main";
 
 const UsersSection = () => {
 
-    const {currentUserNr, setCurrentUserNr} = useStore(state => state);
-
+    const { currentPage, setCurrentPage } = useStore((state) => state);
 
     const [users, setUsers] = useState([]);
-    const [totalUsers, setTotalUsers] = useState();
+    const [totalPages, setTotalPages] = useState(null);
 
     useEffect(() => {
-        async function fetchAllUsers() {
-            const usersNumber = await  http.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users`)
-            setTotalUsers(usersNumber.total_users)
 
-            const data = await http.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${usersNumber.total_users}`)
+        http.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${currentPage}&count=6`)
+            .then(data => {
 
-            const Users = data.users.sort((a, b) => b.registration_timestamp - a.registration_timestamp)
+                setUsers(prev =>
+                    currentPage === 1 ? data.users : [...prev, ...data.users]);
 
-            const AllUsers = Users.slice(0, currentUserNr)
-            setUsers(AllUsers);
+                setTotalPages(data.total_pages);
+            })
+    }, [currentPage]);
+
+
+    function ShowMore() {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
         }
-
-        fetchAllUsers()
-    }, [currentUserNr]);
-
-    function ShowMore(){
-        if (currentUserNr >= totalUsers) return;
-        setCurrentUserNr()
     }
+
 
     return (
         <div className="container min-h-screen mb-[140px] flex flex-col gap-[60px] items-center">
@@ -43,7 +41,7 @@ const UsersSection = () => {
                     <UserCard key={i} user={user}/>
                 ))}
             </div>
-            {currentUserNr >= totalUsers ? null : (
+            {currentPage >= totalPages ? null : (
                 <div>
                     <Buttons value={"Show more"} click={ShowMore}/>
                 </div>
