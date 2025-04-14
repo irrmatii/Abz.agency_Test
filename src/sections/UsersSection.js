@@ -19,9 +19,7 @@ const UsersSection = () => {
 
             const data = await http.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${usersNumber.total_users}`)
 
-            console.log("data", data)
             const Users = data.users.sort((a, b) => b.registration_timestamp - a.registration_timestamp)
-            console.log(Users)
 
             const AllUsers = Users.slice(0, currentUserNr)
             setUsers(AllUsers);
@@ -32,7 +30,6 @@ const UsersSection = () => {
 
     function ShowMore(){
         if (currentUserNr >= totalUsers) return;
-        console.log("clicle")
         setCurrentUserNr()
     }
 
